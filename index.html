@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Celebration</title>
+    <title>Happy Birthday Aashu</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #000000, #1a1a2e);
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -39,45 +39,31 @@
             50% { opacity: 1; }
         }
 
-        .cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            animation: float 20s linear infinite;
+        .floating-emoji {
+            position: fixed;
+            font-size: 2em;
+            animation: float-up 4s ease-in-out infinite;
+            z-index: 2;
         }
 
-        .cloud::before,
-        .cloud::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .flower {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, #ff69b4 0%, #ff1493 70%);
-            border-radius: 50%;
-            animation: float 15s ease-in-out infinite;
-        }
-
-        .flower::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff69b4;
-            border-radius: 50%;
-            top: -10px;
-            left: -10px;
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .container {
             position: relative;
             z-index: 2;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -85,7 +71,7 @@
         header {
             text-align: center;
             padding: 50px 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
@@ -102,9 +88,10 @@
         }
 
         .birthday-boy {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
             border: 5px solid #ffd700;
             margin: 20px auto;
             display: block;
@@ -125,7 +112,7 @@
         }
 
         .wish-card {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
             padding: 30px;
             text-align: center;
@@ -157,7 +144,7 @@
 
         .gallery-image {
             width: 100%;
-            height: 400px;
+            height: 500px;
             object-fit: cover;
             border-radius: 15px;
             border: 3px solid #ffd700;
@@ -169,32 +156,6 @@
             transform: perspective(1000px) rotateY(10deg);
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
         }
-
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #ff69b4;
-            animation: confetti-fall 3s ease-in-out infinite;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateX(-100%) translateY(0);
-            }
-            100% {
-                transform: translateX(100vw) translateY(-100px);
-            }
-        }
     </style>
 </head>
 <body>
@@ -202,8 +163,8 @@
     
     <div class="container">
         <header>
-            <h1>Happy Birthday! 🎉</h1>
-            <img src="images/birthday-boy. jpg.png" alt="Birthday Boy" class="birthday-boy">
+            <h1>Happy Birthday Aashu! 🎉</h1>
+            <img src="images/birthday boy.jpg.png" alt="Birthday Boy" class="birthday-boy">
             <p style="font-size: 1.5em; color: #ff69b4; text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);">
                 Wishing you a wonderful day filled with joy and happiness!
             </p>
@@ -227,8 +188,8 @@
         </div>
 
         <div class="gallery">
-            <img src="images/clebration1. jpg.png" alt="Celebration" class="gallery-image">
-            <img src="images/celebration2. jpg.png" alt="Celebration" class="gallery-image">
+            <img src="images/celbration1 .jpg.jpg" alt="Celebration" class="gallery-image">
+            <img src="images/clebration 2. jpg.jpg" alt="Celebration" class="gallery-image">
         </div>
     </div>
 
@@ -246,64 +207,26 @@
             }
         }
 
-        // Create clouds
-        function createClouds() {
-            for (let i = 0; i < 5; i++) {
-                const cloud = document.createElement('div');
-                cloud.className = 'cloud';
-                cloud.style.width = Math.random() * 200 + 100 + 'px';
-                cloud.style.height = Math.random() * 50 + 30 + 'px';
-                cloud.style.top = Math.random() * 100 + '%';
-                cloud.style.animationDelay = Math.random() * 10 + 's';
-                document.body.appendChild(cloud);
-
-                cloud::before {
-                    width: cloud.style.width;
-                    height: cloud.style.height;
-                    top: -20px;
-                    left: 20px;
-                }
-
-                cloud::after {
-                    width: cloud.style.width;
-                    height: cloud.style.height;
-                    top: -20px;
-                    right: 20px;
-                }
-            }
-        }
-
-        // Create flowers
-        function createFlowers() {
-            for (let i = 0; i < 15; i++) {
-                const flower = document.createElement('div');
-                flower.className = 'flower';
-                flower.style.left = Math.random() * 100 + '%';
-                flower.style.animationDelay = Math.random() * 5 + 's';
-                document.body.appendChild(flower);
-            }
-        }
-
-        // Create confetti
-        function createConfetti() {
+        // Create floating emojis
+        function createFloatingEmojis() {
+            const emojis = ['🎂', '🎈', '🎁', '🎉', '✨', '💝', '🎊', '🎀'];
             setInterval(() => {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                document.body.appendChild(confetti);
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + '%';
+                emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(emoji);
                 
                 setTimeout(() => {
-                    confetti.remove();
-                }, 3000);
-            }, 200);
+                    emoji.remove();
+                }, 5000);
+            }, 500);
         }
 
         // Initialize animations
         createStars();
-        createClouds();
-        createFlowers();
-        createConfetti();
+        createFloatingEmojis();
     </script>
 </body>
 </html> 
